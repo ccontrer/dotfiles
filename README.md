@@ -58,7 +58,7 @@ tmux
 ----
 
 ### Features
-* `Prefix` is `Ctrl-a`i
+* `Prefix` is `Ctrl-a`
 * Moused enabled
 * New windows a panes open in the current folder
 * Open a new window in home directory `Ctrl-a + Ctrl-C`
