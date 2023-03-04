@@ -1,0 +1,85 @@
+" Display line numbers
+set number
+
+" Keys continue to the next/previous lines at end/begining of line
+set whichwrap+=<,>,[,]
+
+" Paste toggle for automatic indentation
+set pastetoggle=<F2>
+
+" Mouse
+set mouse=a
+
+" Disable backup and swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" 4 spaces width indentation with '>' and <Tab>
+filetype plugin indent on    " required
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+" Key re-mapping
+noremap <Leader>s :update<CR>
+
+" Mapping cursor movement for wrapping mode. Only arrow keys and jk in visual
+" mode
+noremap  <buffer> <silent> <Up> g<Up>
+noremap  <buffer> <silent> <Down> g<Down>
+noremap  <buffer> <silent> <Home> g<Home>
+noremap  <buffer> <silent> <End> g<End>
+nnoremap  <buffer> <silent> <Up> g<Up>
+nnoremap  <buffer> <silent> <Down> g<Down>
+nnoremap  <buffer> <silent> <Home> g<Home>
+nnoremap  <buffer> <silent> <End> g<End>
+vnoremap  <buffer> <silent> k gk
+vnoremap  <buffer> <silent> j gj
+vnoremap  <buffer> <silent> <Up> g<Up>
+vnoremap  <buffer> <silent> <Down> g<Down>
+vnoremap  <buffer> <silent> <Home> g<Home>
+vnoremap  <buffer> <silent> <End> g<End>
+inoremap  <buffer> <silent> <Up> <C-o>g<Up>
+inoremap  <buffer> <silent> <Down> <C-o>g<Down>
+inoremap  <buffer> <silent> <Home> <C-o>g<Home>
+inoremap  <buffer> <silent> <End> <C-o>g<End>
+
+" Color
+set t_Co=256
+
+" NERDTree
+" https://github.com/preservim/nerdtree
+nnoremap <leader>tt :NERDTreeToggle<CR>
+nnoremap <leader>tn :NERDTreeFocus<CR>
+nnoremap <leader>tf :NERDTreeFind<CR>
+
+" Solarized
+" https://github.com/altercation/vim-colors-solarized
+syntax enable
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+"call togglebg#map("<F6>")
+
+" lightline
+" https://github.com/itchyny/lightline.vim
+set laststatus=2
+set statusline+=%{ObsessionStatus()}
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
+" fuzzy finder
+" https://github.com/junegunn/fzf.vim
+set rtp+=~/.fzf
+nnoremap <leader>fzf :FZF<CR>
